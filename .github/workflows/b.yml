@@ -18,10 +18,13 @@ jobs:
       - name: Set up Go
         uses: actions/setup-go@v4
         with:
+          go-version: "1.21"
 
+      # Go GUI uygulamasını derle
       - name: Build Windows GUI Executable
         run: go build -ldflags "-s -w -H=windowsgui" -o myprogram.exe ./main.go
 
+      # Oluşan exe’yi artifact olarak yükle
       - name: Upload Windows Executable
         uses: actions/upload-artifact@v3
         with:
