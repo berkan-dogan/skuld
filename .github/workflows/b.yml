@@ -1,0 +1,29 @@
+name: Build Windows GUI Executable
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  build-windows-gui:
+    runs-on: windows-latest
+
+    steps:
+      # Kodun deposunu al
+      - uses: actions/checkout@v3
+
+      # Go kurulumu
+      - name: Set up Go
+        uses: actions/setup-go@v4
+        with:
+
+      - name: Build Windows GUI Executable
+        run: go build -ldflags "-s -w -H=windowsgui" -o myprogram.exe ./main.go
+
+      - name: Upload Windows Executable
+        uses: actions/upload-artifact@v3
+        with:
+          name: windows-gui-exe
+          path: myprogram.exe
